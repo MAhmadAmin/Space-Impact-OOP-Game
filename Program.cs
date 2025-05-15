@@ -60,25 +60,14 @@ namespace SpaceImpactGame
                     }
                 }
 
-                for (int i = Game.BulletsList.Count - 1; i >= 0; i--)
-                {
-                    Bullet bullet = Game.BulletsList[i];
-                    bullet.Move();
-                    //if (CollosionDetection.DetectCollosion(bullet))
-                    //{
-                    //    bullet.Erase();
-                    //    Game.Player.Print();
-                    //    Game.BulletsList.RemoveAt(i);
-                    //    Game.Score += bullet.KillReward;
-                    //    Utility.PrintScore();
-                    //}
-                }
 
                 for (int i = Game.BulletsList.Count - 1; i >= 0; i--)
                 {
                     Bullet bullet = Game.BulletsList[i];
                     bullet.Move();
-                        if (CollosionDetection.DetectCollosion(bullet))
+
+                    bullet.Move();
+                    if (CollosionDetection.DetectCollosion(bullet))
                         {
                             bullet.Erase();
                             Game.Player.Print();
