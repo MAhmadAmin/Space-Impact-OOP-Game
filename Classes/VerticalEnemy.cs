@@ -8,6 +8,6 @@ namespace SpaceImpactGame.Classes
 {
     public class VerticalEnemy : Enemy
     {
-        public VerticalEnemy(int x, int y, int health) : base(x, y, health) { }
+        public VerticalEnemy(int x, int y, int health, int collosionDamage, int bulletDamage, string bulletShape, int killReward, char[,] EnemyShape) : base(x, y, health, collosionDamage, bulletDamage, bulletShape, killReward, EnemyShape) { }
     }
 }

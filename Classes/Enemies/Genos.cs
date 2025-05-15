@@ -11,16 +11,61 @@ namespace SpaceImpactGame.Classes.Enemies
         static readonly int Health = 5;
         static readonly int CollosionDamage = 5;
         static readonly int BulletDamage = 2;
-        static readonly char BulletShape = (char)170;
+        static readonly string BulletShape = ((char)170).ToString(); // Fixed CS0029 by converting char to string  
         static readonly int KillReward = 5;
+        static readonly int Speed = 5;
         static public char[,] EnemyShape = new char[,]
         {
-            { ' ', ' ', '/', '%', 'o', '%', 'o', '%' },
-            { '"', '"', '"', '%', '%', '%', '%', '%' }
+               { ' ', ' ', '/', '%', 'o', '%', 'o', '%' },
+               { '"', '"', '"', '%', '%', '%', '%', '%' }
         };
 
-        public Genos(int x, int y) : base(x, y, Health)
+        public Genos(int x, int y) : base(x, y, Health, CollosionDamage, BulletDamage, BulletShape, KillReward, EnemyShape)
         {
+        }
+
+        public override void Print()
+        {
+            int rows = EnemyShape.GetLength(0);
+            int cols = EnemyShape.GetLength(1);
+
+            for (int i = 0; i < rows; i++)
+            {
+                Console.SetCursorPosition(X, Y + i);
+
+                for (int j = 0; j < cols; j++)
+                {
+                    Console.Write(EnemyShape[i, j]);
+                }
+                Console.WriteLine(); // Move to the next line after each row
+            }
+        }
+
+        public override void Erase()
+        {
+            int rows = EnemyShape.GetLength(0);
+            int cols = EnemyShape.GetLength(1);
+
+            for (int i = 0; i < rows; i++)
+            {
+                Console.SetCursorPosition(X, Y + i);
+
+                for (int j = 0; j < cols; j++)
+                {
+                    Console.Write(" ");
+                }
+                Console.WriteLine(); // Move to the next line after each row
+            }
+        }
+
+        public override void Move()
+        {
+            if(Tick.TickCount % Speed == 0)
+            {
+                Erase();
+                X--;
+                Print();
+            }
         }
     }
 }

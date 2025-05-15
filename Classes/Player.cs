@@ -11,6 +11,8 @@ namespace SpaceImpactGame.Classes
 { 
     public class Player : Character
     {
+        static public int BulletDamage = 1;
+        static public string BulletSymbol = ((char)169).ToString();
         private int life = 3;
         private static int playerInitialHealth = 20;
 
@@ -31,7 +33,7 @@ namespace SpaceImpactGame.Classes
             set { life = value; }
         }
         
-        public void Print()
+        public override void Print()
         {
             ConsoleColor originalColor = Console.ForegroundColor;
 
@@ -57,7 +59,7 @@ namespace SpaceImpactGame.Classes
             // Reset color to default
             Console.ForegroundColor = originalColor;
         }
-        public void Erase()
+        public override void Erase()
         {
             Console.SetCursorPosition(X, Y);
             Console.Write("     ");
@@ -69,7 +71,7 @@ namespace SpaceImpactGame.Classes
             Console.Write("     ");
         }
 
-        public void Move()
+        public override void Move()
         {
             if (Keyboard.IsKeyPressed(Key.UpArrow))
                 if (Y > 4)

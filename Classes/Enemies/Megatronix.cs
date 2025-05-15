@@ -11,9 +11,9 @@ namespace SpaceImpactGame.Classes.Enemies
         static readonly int Health = 10;
         static readonly int CollosionDamage = 5;
         static readonly int BulletDamage = 2;
-        static readonly string enemy2Bullet = "-=";
+        static readonly string BulletShape = "-=";
         static readonly int KillReward = 10;
-        char[,] EnemyShape = new char[,]
+        static char[,] EnemyShape = new char[,]
         {
             { ' ', ' ', '-', '-', '#' },
             { '<', '-', '|', 'o', '|' },
@@ -21,7 +21,7 @@ namespace SpaceImpactGame.Classes.Enemies
         };
 
 
-        public Megatronix(int x, int y) : base(x, y, Health)
+        public Megatronix(int x, int y) : base(x, y, Health, CollosionDamage, BulletDamage, BulletShape, KillReward, EnemyShape)
         {
         }
     }

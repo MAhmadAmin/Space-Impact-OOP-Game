@@ -18,6 +18,7 @@ namespace SpaceImpactGame.UI
 
         public void PrintMaze()
         {
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("\n\n");
             Console.WriteLine(mazeInstance.topBottomBorder);
             for (int i = 0; i < 22; i++)

@@ -8,6 +8,8 @@ namespace SpaceImpactGame.Interface
 {
     public interface IMove
     {
-        void Move(int x, int y);
+        void Move();
+        void Print();
+        void Erase();
     }
 }

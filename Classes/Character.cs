@@ -16,5 +16,10 @@ namespace SpaceImpactGame.Classes
         {
             Health = health;
         }
+        public abstract void Print();
+
+        public abstract void Erase();
+
+        public abstract void Move();
     }
 }

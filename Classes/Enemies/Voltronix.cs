@@ -11,9 +11,9 @@ namespace SpaceImpactGame.Classes.Enemies
         static readonly int Health = 50;
         static readonly int CollosionDamage = 3;
         static readonly int BulletDamage = 3;
-        static readonly string enemy3Bullet = "<=-";
+        static readonly string BulletShape = "<=-";
         static readonly int KillReward = 100;
-        char[,] Enemy3 = new char[,]
+        static char[,] EnemyShape = new char[,]
         {
             { ' ', ' ', '~', '-', '#' },
             { '_', '-', 'o', '@', '|' },
@@ -21,7 +21,7 @@ namespace SpaceImpactGame.Classes.Enemies
             { ' ', ' ', '~', '-', '#' }
         };
 
-        public Voltronix(int x, int y) : base(x, y, Health)
+        public Voltronix(int x, int y) : base(x, y, Health, CollosionDamage, BulletDamage, BulletShape, KillReward, EnemyShape)
         {
         }
     }
