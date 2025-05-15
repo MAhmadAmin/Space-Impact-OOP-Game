@@ -8,9 +8,13 @@ namespace SpaceImpactGame.Classes
 {
     public abstract class Character : GameEntity
     {
-        private int health;
+        private int _health;
         
-        public int Health { get => health; set => health = value; }
+        public int Health
+        {
+            get => _health;
+            set => _health = value < 0 ? 0 : value;
+        }
 
         public Character(int x, int y, int health) : base(x, y)
         {

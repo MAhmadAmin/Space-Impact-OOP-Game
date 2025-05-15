@@ -30,10 +30,13 @@ namespace SpaceImpactGame
 
             int BugGenerationTime = 11;
             int GenosGenerationTime = 51;
+            int FiringTime = 6;
 
 
             while (true)
             {
+                CollosionDetection.BulletHitBug();
+                CollosionDetection.BulletHitEnemy();
                 Thread.Sleep(100);
                 Tick.TickCount++;
                 if (Tick.TickCount > 99)
@@ -41,17 +44,70 @@ namespace SpaceImpactGame
 
                 Game.Player.Move();
 
-                if (BugGenerationTime > 10)
-                { 
-                    Game.BugsList.Add(new Bug(65, random.Next(5, 26)));
-                    BugGenerationTime = 0;
+                if(Keyboard.IsKeyPressed(Key.Space) && FiringTime >5)
+                {
+                    Game.BulletsList.Add(new PlayerBullet());
+                    FiringTime = 0;
                 }
 
+
+                foreach(Enemy e in Game.EnemiesList)
+                {
+                    Bullet b = e.Shoot();
+                    if(b != null)
+                    {
+                        Game.BulletsList.Add(b);
+                    }
+                }
+
+                for (int i = Game.BulletsList.Count - 1; i >= 0; i--)
+                {
+                    Bullet bullet = Game.BulletsList[i];
+                    bullet.Move();
+                    //if (CollosionDetection.DetectCollosion(bullet))
+                    //{
+                    //    bullet.Erase();
+                    //    Game.Player.Print();
+                    //    Game.BulletsList.RemoveAt(i);
+                    //    Game.Score += bullet.KillReward;
+                    //    Utility.PrintScore();
+                    //}
+                }
+
+                for (int i = Game.BulletsList.Count - 1; i >= 0; i--)
+                {
+                    Bullet bullet = Game.BulletsList[i];
+                    bullet.Move();
+                        if (CollosionDetection.DetectCollosion(bullet))
+                        {
+                            bullet.Erase();
+                            Game.Player.Print();
+                            Game.BulletsList.RemoveAt(i);
+                            Game.Player.Health -= bullet.Damage;
+                            Utility.PrintHealth(Game.Player);
+                        }
+                }
+                for (int i = Game.BulletsList.Count - 1; i >= 0; i--)
+                {
+                    Bullet bullet = Game.BulletsList[i];
+                    if(bullet.X >66 || bullet.X < 4)
+                    {
+                        bullet.Erase();
+                        Game.BulletsList.RemoveAt(i);
+                    }
+                }
+
+
+                if (BugGenerationTime > 10)
+                { 
+                    Game.BugsList.Add(new Bug(65, CoordinateGenerator.GenerateCoodinateGenos()));
+                    BugGenerationTime = 0;
+                }
                 for (int i = Game.BugsList.Count - 1; i >= 0; i--)
                 {
                     Bug bug = Game.BugsList[i];
                     bug.Move();
-                    if (CollosionDetection.DetectCollosion(bug.X, bug.Y))
+                    if (CollosionDetection.DetectCollosion(bug))
                     {
                         bug.Erase();
                         Game.Player.Print();
@@ -61,7 +117,6 @@ namespace SpaceImpactGame
                     }
 
                 }
-
                 for (int i = Game.BugsList.Count - 1; i >= 0; i--)
                 {
                     Bug bug = Game.BugsList[i];
@@ -74,15 +129,14 @@ namespace SpaceImpactGame
 
                 if(GenosGenerationTime >= 51)
                 {
-                    Game.EnemiesList.Add(new Genos(62, random.Next(5, 26)));
+                    Game.EnemiesList.Add(new Genos(62, random.Next(5, 25)));
                     GenosGenerationTime =0;
                 }
-
                 for(int i = Game.EnemiesList.Count - 1; i>=0; i--)
                 {
                     Enemy enemy = Game.EnemiesList[i];
                     enemy.Move();
-                    if(CollosionDetection.DetectCollosion(enemy.X, enemy.Y))
+                    if(CollosionDetection.DetectCollosion(enemy))
                     {
                         enemy.Erase();
                         Game.Player.Print();
@@ -91,7 +145,6 @@ namespace SpaceImpactGame
                         Utility.PrintHealth(Game.Player);
                     }
                 }
-
                 for(int i = Game.EnemiesList.Count -1; i>=0; i--)
                 {
                     Enemy enemy = Game.EnemiesList[i];
@@ -102,6 +155,7 @@ namespace SpaceImpactGame
                     }
                 }
 
+                FiringTime++;
                 GenosGenerationTime++;
                 BugGenerationTime++;
             }

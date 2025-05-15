@@ -19,8 +19,9 @@ namespace SpaceImpactGame.Classes
             get => x;
             set
             {
-                if (value < 0)
-                    throw new ArgumentOutOfRangeException(nameof(value), "X must be a positive value.");
+                if (value < 0 || value > 69)
+                    throw new ArgumentOutOfRangeException(nameof(value), "X must be a positive value within Maze.");
+
                 x = value;
             }
         }

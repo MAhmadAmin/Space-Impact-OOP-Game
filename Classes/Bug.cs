@@ -11,7 +11,7 @@ namespace SpaceImpactGame.Classes
         private static int playerInitialHealth = 1;
         static readonly int Health = 1;
         static public int CollosionDamage = 1;
-        static readonly int KillReward = 2;
+        public static readonly int KillReward = 2;
         static readonly string EnemyShape = "(@@";
         static readonly int Speed = 1;
         public Bug(int x, int y) : base(x, y, Health)

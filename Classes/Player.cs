@@ -12,7 +12,7 @@ namespace SpaceImpactGame.Classes
     public class Player : Character
     {
         static public int BulletDamage = 1;
-        static public string BulletSymbol = ((char)169).ToString();
+        static public string BulletSymbol = "⌐";
         private int life = 3;
         private static int playerInitialHealth = 20;
 

@@ -7,7 +7,7 @@ using SpaceImpactGame.Interface;
 
 namespace SpaceImpactGame.Classes
 {
-    abstract class Bullet : GameEntity, IMove
+    public abstract class Bullet : GameEntity, IMove
     {
         private int _damage;
         private string _symbol;

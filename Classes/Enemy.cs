@@ -9,19 +9,19 @@ namespace SpaceImpactGame.Classes
     public class Enemy : Character
     {
         public int CollosionDamage;
-        readonly int BulletDamage;
-        readonly char BulletShape;
-        readonly int KillReward;
+        public readonly int BulletDamage;
+        public readonly string BulletShape;
+        public readonly int KillReward;
         public char[,] EnemyShape = new char[,]
         {
         };
-        public Enemy(int x, int y, int health, int collosionDamage, int bulletDamage, string bulletShape, int killReward, char[,] EnemyShape) : base(x, y, health) 
+        public Enemy(int x, int y, int health, int collosionDamage, int bulletDamage, string bulletShape, int killReward, char[,] enemyShape) : base(x, y, health) 
         {
             CollosionDamage = collosionDamage;
             BulletDamage = bulletDamage;
-            BulletShape = bulletShape[0];
+            BulletShape = bulletShape;
             KillReward = killReward;
-            EnemyShape = EnemyShape;
+            EnemyShape = enemyShape;
         }
 
 
@@ -31,14 +31,14 @@ namespace SpaceImpactGame.Classes
         }
 
         public override void Move()
-        {
-
-        }
+        { }
 
         public override void Print()
         { }
 
         public override void Erase()
         { }
+
+        public virtual Bullet Shoot() { return null; }
     }
 }

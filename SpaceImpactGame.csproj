@@ -54,9 +54,11 @@
     <Compile Include="Classes\Enemies\Megatronix.cs" />
     <Compile Include="Classes\Enemies\Voltronix.cs" />
     <Compile Include="Classes\Enemy.cs" />
+    <Compile Include="Classes\EnemyBullet.cs" />
     <Compile Include="Classes\Enum.cs" />
     <Compile Include="Classes\Game.cs" />
     <Compile Include="Classes\GameEntity.cs" />
+    <Compile Include="Classes\CoordinateGenerator.cs" />
     <Compile Include="Classes\HorizontalEnemy.cs" />
     <Compile Include="Classes\Maze.cs" />
     <Compile Include="Classes\Player.cs" />
