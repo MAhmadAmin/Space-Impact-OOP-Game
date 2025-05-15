@@ -13,6 +13,7 @@ namespace SpaceImpactGame.Classes
     {
         static public int BulletDamage = 1;
         static public string BulletSymbol = "⌐";
+        static int ShootSpeed = 5;
         private int life = 3;
         private static int playerInitialHealth = 20;
 
@@ -102,6 +103,20 @@ namespace SpaceImpactGame.Classes
                     X++;
                     Print();
                 }
+        }
+
+        public Bullet Shoot()
+        {
+            if (Keyboard.IsKeyPressed(Key.Space) && ShootSpeed > 20)
+            {
+                Bullet bullet = new PlayerBullet();
+                bullet.Print();
+                bullet.Move();
+                return bullet;
+                ShootSpeed = 0;
+            }
+            ShootSpeed++;
+            return null;
         }
     }
 }

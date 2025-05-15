@@ -70,7 +70,7 @@ namespace SpaceImpactGame.Classes
                 for (int j = 0; j < Game.EnemiesList.Count; j++)
                 {
                     Enemy enemy = Game.EnemiesList[j];
-                    if ((bullet.X == enemy.X || bullet.X == enemy.X + 1 || bullet.X == enemy.X + 2) && bullet.Y == enemy.Y)
+                    if ((bullet.X == enemy.X || bullet.X == enemy.X + 1 || bullet.X == enemy.X + 2) && (bullet.Y == enemy.Y || bullet.Y -1 == enemy.Y))
                     {
                         bullet.Erase();
                         Game.BulletsList.RemoveAt(i);

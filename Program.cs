@@ -35,8 +35,6 @@ namespace SpaceImpactGame
 
             while (true)
             {
-                CollosionDetection.BulletHitBug();
-                CollosionDetection.BulletHitEnemy();
                 Thread.Sleep(100);
                 Tick.TickCount++;
                 if (Tick.TickCount > 99)
@@ -60,6 +58,8 @@ namespace SpaceImpactGame
                     }
                 }
 
+                CollosionDetection.BulletHitBug();
+                CollosionDetection.BulletHitEnemy();
 
                 for (int i = Game.BulletsList.Count - 1; i >= 0; i--)
                 {
@@ -67,6 +67,9 @@ namespace SpaceImpactGame
                     bullet.Move();
 
                     bullet.Move();
+
+                    CollosionDetection.BulletHitBug();
+                    CollosionDetection.BulletHitEnemy();
                     if (CollosionDetection.DetectCollosion(bullet))
                         {
                             bullet.Erase();
@@ -75,7 +78,7 @@ namespace SpaceImpactGame
                             Game.Player.Health -= bullet.Damage;
                             Utility.PrintHealth(Game.Player);
                         }
-                }
+                }   //Move and collosion Bullets
                 for (int i = Game.BulletsList.Count - 1; i >= 0; i--)
                 {
                     Bullet bullet = Game.BulletsList[i];
@@ -84,7 +87,7 @@ namespace SpaceImpactGame
                         bullet.Erase();
                         Game.BulletsList.RemoveAt(i);
                     }
-                }
+                }   //Delete Bullets
 
 
                 if (BugGenerationTime > 10)
@@ -105,7 +108,7 @@ namespace SpaceImpactGame
                         Utility.PrintHealth(Game.Player);
                     }
 
-                }
+                }       //Move and Collosion Bugs
                 for (int i = Game.BugsList.Count - 1; i >= 0; i--)
                 {
                     Bug bug = Game.BugsList[i];
@@ -114,7 +117,7 @@ namespace SpaceImpactGame
                         bug.Erase();
                         Game.BugsList.RemoveAt(i);
                     }
-                }
+                }       //Delete Bugs
 
                 if(GenosGenerationTime >= 51)
                 {
@@ -133,7 +136,7 @@ namespace SpaceImpactGame
                         Game.Player.Health -= enemy.CollosionDamage;
                         Utility.PrintHealth(Game.Player);
                     }
-                }
+                }       //Generation and Collosion
                 for(int i = Game.EnemiesList.Count -1; i>=0; i--)
                 {
                     Enemy enemy = Game.EnemiesList[i];
@@ -142,7 +145,8 @@ namespace SpaceImpactGame
                         enemy.Erase();
                         Game.EnemiesList.RemoveAt(i);
                     }
-                }
+                }       //Delete Enemies
+
 
                 FiringTime++;
                 GenosGenerationTime++;
