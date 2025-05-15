@@ -46,8 +46,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Bug.cs" />
+    <Compile Include="Classes\Bullet.cs" />
+    <Compile Include="Classes\Character.cs" />
+    <Compile Include="Classes\CollosionDetection.cs" />
+    <Compile Include="Classes\Enemies\Genos.cs" />
+    <Compile Include="Classes\Enemies\Megatronix.cs" />
+    <Compile Include="Classes\Enemies\Voltronix.cs" />
+    <Compile Include="Classes\Enemy.cs" />
+    <Compile Include="Classes\Enum.cs" />
+    <Compile Include="Classes\Game.cs" />
+    <Compile Include="Classes\GameEntity.cs" />
+    <Compile Include="Classes\HorizontalEnemy.cs" />
+    <Compile Include="Classes\Maze.cs" />
+    <Compile Include="Classes\Player.cs" />
+    <Compile Include="Classes\Utility.cs" />
+    <Compile Include="Classes\VerticalEnemy.cs" />
+    <Compile Include="Interface\IKeyMovements.cs" />
+    <Compile Include="Interface\IMove.cs" />
+    <Compile Include="Interface\IShoot.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\EnemyUI.cs" />
+    <Compile Include="UI\GameUI.cs" />
+    <Compile Include="UI\MazeUI.cs" />
+    <Compile Include="UI\PlayerUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
