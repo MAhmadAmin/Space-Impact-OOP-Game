@@ -2,15 +2,16 @@
 
 This project is a final-term **OOP Game Project** submission by **Muhammad Ahmad Amin** for the **Object Oriented Programming (OOP)** course *(2nd semester, BS Computer Science)*, instructed by **Prof. Awais Hassan** at **UET (University of Engineering & Technology) Lahore**.
 
-The same game was initially developed using **C++ procedural programming** during the **Programming Fundamentals (PF)** course *(1st semester, BS Computer Science)*. It has now been **redeveloped using C# and object-oriented principles** as part of this course.
+The same game was initially developed using **C++ procedural programming** during the **Programming Fundamentals (PF)** course *(1st semester, BS Computer Science)*.
+It has now been **redeveloped using C# and object-oriented principles** as part of this course.
 
-You can find the C++ procedurally Programmed code on my profile [@Muhammad Ahmad Amin](https://github.com/MAhmadAmin)
+You can explore the OOP C# version of the game here [Space-Impact-OOP](https://github.com/MAhmadAmin/Space-Impact-Cpp-Game) on my GitHub Profile [@MAhmadAmin](https://github.com/MAhmadAmin).
 
 
 
 ## Learning Objective
 
-**Space Impact** is a console-based space shooter game, heavily inspired by the legendary game found on classic Nokia 1100 phones. The project focuses on applying core **Object Oriented Programming (OOP)** concepts like:
+This console-based space shooter game was inspired by the iconic Space Impact from the Nokia 1100.  The project focuses on applying core **Object Oriented Programming (OOP)** concepts like:
 
 - Classes & Objects  
 - Inheritance  
