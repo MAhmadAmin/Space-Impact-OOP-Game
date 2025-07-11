@@ -5,7 +5,7 @@ This project is a final-term **OOP Game Project** submission by **Muhammad Ahmad
 The same game was initially developed using **C++ procedural programming** during the **Programming Fundamentals (PF)** course *(1st semester, BS Computer Science)*.
 It has now been **redeveloped using C# and object-oriented principles** as part of this course.
 
-You can explore the OOP C# version of the game here [Space-Impact-OOP](https://github.com/MAhmadAmin/Space-Impact-Cpp-Game) on my GitHub Profile [@MAhmadAmin](https://github.com/MAhmadAmin).
+You can explore the initial C++ version of the game here [Space-Impact-C++](https://github.com/MAhmadAmin/Space-Impact-Cpp-Game) on my GitHub Profile [@MAhmadAmin](https://github.com/MAhmadAmin).
 
 
 
